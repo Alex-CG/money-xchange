@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { HomeComponent } from 'src/app/home/home.component';
+import { FooterComponent } from 'src/app/home/footer/footer.component';
 import { ConversorComponent } from 'src/app/home/conversor/conversor.component';
 
 import { HttpClientModule } from '@angular/common/http';
@@ -11,6 +12,7 @@ import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     HomeComponent,
+    FooterComponent,
     ConversorComponent
   ],
   imports: [
@@ -20,6 +22,7 @@ import { FormsModule } from '@angular/forms';
   ],
   exports: [
   	HomeComponent,
+    FooterComponent,
   	ConversorComponent
   ],
   providers: []
