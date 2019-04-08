@@ -1,13 +1,12 @@
 <form name="xchangeForm">
 	<div class="form-row">
 		<div class="col-12 col-sm-6">
-			<input type="text" class="form-control" name="baseCurrency" placeholder="USD" [(ngModel)]="baseAmount">
+			<input type="text" class="form-control" name="baseCurrency" placeholder="USD" [ngModel]="baseAmount" (ngModelChange)="setBaseAmount($event)">
 		</div>
 		<div class="col-12 col-sm-6">
 			<div class="mt-1 d-block d-sm-none"></div>
-			<input type="text" class="form-control" name="changedCurrency" [disabled]="true" placeholder="EUR" [(ngModel)]="calculated">
+			<input type="text" class="form-control" name="changedCurrency" [disabled]="true" placeholder="EUR" [ngModel]="calculated">
 		</div>
-
 	</div>
 	<div class="form-row mt-3">
 		<div class="col-12 text-center">

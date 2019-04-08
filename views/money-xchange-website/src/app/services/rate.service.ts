@@ -15,7 +15,7 @@ export class RateService {
 
 	getRates(base: string, currency: string) {
 		let url = this.restapi + this.latest + '?base=' + base;
-		if(currency) { url += ('&symbols=' + currency); }
+		if (currency) { url += ('&symbols=' + currency); }
 		return this.http.get(url);
 	}
 

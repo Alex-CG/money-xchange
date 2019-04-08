@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { RateService } from 'src/app/services/rate.service';
 
 import { ResponseModel } from 'src/app/dto/responsemodel.dto';
@@ -11,9 +11,28 @@ import { RateResume } from 'src/app/dto/rateresume.dto';
 })
 export class ConversorComponent implements OnInit {
 
-  rates: any;
-  baseAmount: number;
-  calculated: number;
+  @Input() rates: any;
+  @Input() baseAmount: number;
+  @Input() calculated: number;
+
+  @Output() ratesChange = new EventEmitter<any>();
+  @Output() baseAmountChange = new EventEmitter<number>();
+  @Output() calculatedChange = new EventEmitter<number>();
+
+  setRates(ratesIn: any) { 
+    this.rates = ratesIn;
+    this.ratesChange.emit(ratesIn);
+  }
+
+  setBaseAmount(baseAmountIn: any) { 
+    this.baseAmount = baseAmountIn;
+    this.baseAmountChange.emit(baseAmountIn);
+  }
+
+  setCalculated(calculatedIn: any) { 
+    this.calculated = calculatedIn;
+    this.calculatedChange.emit(calculatedIn);
+  }
 
   constructor(private rateService: RateService) { }
 
@@ -23,13 +42,20 @@ export class ConversorComponent implements OnInit {
   getRates() {
     let base = 'USD';
     let curr = 'EUR';
+
+    this.setBaseAmount(this.baseAmount);
+
   	this.rateService.getRates(base, curr).subscribe(data => {
       let resp = <ResponseModel> data;
   		if (resp && resp.code === '00') {
-			  console.log(JSON.stringify(resp));
+
         let rateResume = <RateResume> resp.data;
-        this.rates = rateResume.rates;
-        this.calculated = this.rates[curr] * this.baseAmount;
+
+        this.setRates(rateResume.rates);
+
+        const calculated = this.rates[curr] * this.baseAmount;
+        this.setCalculated(calculated);
+
   		} else {
   			console.log('error');
   		}

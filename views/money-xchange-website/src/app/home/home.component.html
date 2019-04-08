@@ -9,13 +9,12 @@
 
 		<div class="jumbotron d-none d-sm-block">
 			<div class="row justify-content-sm-center">
-				<conversor></conversor>
+				<conversor [(rates)]="rates" [(baseAmount)]="baseAmount" [(calculated)]="calculated"></conversor>
 			</div>
-
 		</div>
 
 		<div class="d-block d-sm-none">
-			<conversor></conversor>
+			<conversor [(rates)]="rates" [(baseAmount)]="baseAmount" [(calculated)]="calculated"></conversor>
 		</div>
 
       <footer class="pt-4 my-md-5 pt-md-5 border-top">
