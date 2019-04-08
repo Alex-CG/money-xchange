@@ -1,0 +1,13 @@
+# APPLICATION
+server:
+  port: 8091
+  servlet:
+    contextPath: /moneyxchangeapi
+
+# DATASOURCE
+spring:
+  datasource:
+    url: jdbc:mariadb://localhost:3306/exchange
+    username: root
+    password: root
+    driver-class-name: org.mariadb.jdbc.Driver
