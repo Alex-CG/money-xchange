@@ -5,6 +5,8 @@ import { HomeComponent } from 'src/app/home/home.component';
 import { FooterComponent } from 'src/app/home/footer/footer.component';
 import { ConversorComponent } from 'src/app/home/conversor/conversor.component';
 
+import { DecimalFormatDirective } from 'src/app/directives/html.directive';
+
 import { HttpClientModule } from '@angular/common/http';
 
 import { FormsModule } from '@angular/forms';
@@ -13,7 +15,8 @@ import { FormsModule } from '@angular/forms';
   declarations: [
     HomeComponent,
     FooterComponent,
-    ConversorComponent
+    ConversorComponent,
+    DecimalFormatDirective
   ],
   imports: [
     BrowserModule,
